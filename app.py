@@ -13,11 +13,10 @@ async def on_ready():
  
 @client.event
 async def on_message(message):
-    if message.content.startswith('~청소'):
+    if message.content.startswith('~세탁'):
         await client.send_message(message.channel, '이쪽 코드는 아직 안 짰음')
     else:
-        await client.send_message(message.channel, msg.content)
+            await client.send_message(message.channel, msg.content)
 
 # 토큰은 여기다 싸질러주세요
 client.run('XXXXXXXXXX')
-
