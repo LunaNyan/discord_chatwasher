@@ -13,11 +13,14 @@ async def on_ready():
  
 @client.event
 async def on_message(message):
-    if message.content.startswith('~세탁'):
-        await client.send_message(message.channel, '이쪽 코드는 아직 안 짰음')
+    if message.content.startswith('하우젠 다쓸어버려'):
+        if "449706643710541824" in [role.id for role in message.author.roles]:
+            tmp = await client.send_message(message.channel, '은나노스팀으로 살균세탁중 >_<')
+            async for msg in client.logs_from(message.channel):
+                await client.delete_message(msg)
+            await client.send_message(message.channel, '살균세탁 하셨나요 하우젠~♬')
     else:
-        await client.send_message(message.channel, msg.content)
+        await client.send_message(message.channel, '관리자 권한이 없습니다')
 
 # 토큰은 여기다 싸질러주세요
 client.run('XXXXXXXXXX')
-
