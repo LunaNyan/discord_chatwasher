@@ -5,6 +5,12 @@ import asyncio
 client = discord.Client()
 
 #Strings
+bot_ver = '1.0.0'
+
+source_repo = 'https://github.com/lunanyan/discord_chatwasher'
+bot_invite_url = 'https://discordapp.com/oauth2/authorize?client_id=505037489573068800&scope=bot'
+hauzen_yt = 'https://www.youtube.com/watch?v=ohU40KhdPtE'
+
 #일체형으로 작성해야 하기에 라이센스 전문을 하드코딩합니다
 license = '```MIT License\n\n'
 license+= 'Copyright (c) 2018 ItsLunaNyan\n\n'
@@ -24,18 +30,12 @@ license+= 'LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISI
 license+= 'OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\n'
 license+= 'SOFTWARE.```'
 
-help = '하우젠봇 v' + bot_ver + '\n초대하기 : ' + bot_invite_url + '\n문의는 libertin#2340에 갠챗으로 주시기 바랍니다.\n\n' + help + '\n\n이름의 어원은 ' + hauzen_yt + '에서 착안했습니다.\n\n'
+help = '하우젠봇 v' + bot_ver + '\n초대하기 : ' + bot_invite_url + '\n문의는 libertin#2340에 갠챗으로 주시기 바랍니다.\n\n이름의 어원은 ' + hauzen_yt + '에서 착안했습니다.\n\n'
 help+= '하우젠봇 명령어 목록\n'
 help+= '하우젠 다쓸어버려 : 채널에 있는 메시지를 전부 삭제(세탁)합니다.\n'
 help+= '하우젠 도와줘 : 이 도움말을 표시합니다.\n'
 help+= '하우젠 라이센스 : 하우젠봇의 라이센스를 표시합니다.\n'
 help+= '하우젠 소스코드 : 하우젠봇의 소스코드 주소를 표시합니다.'
-
-source_repo = 'https://github.com/lunanyan/discord_chatwasher'
-bot_invite_url = 'https://discordapp.com/oauth2/authorize?client_id=505037489573068800&scope=bot'
-hauzen_yt = 'https://www.youtube.com/watch?v=ohU40KhdPtE'
-
-bot_ver = '1.0.0'
 
 @client.event
 async def on_ready():
