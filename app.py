@@ -32,7 +32,7 @@ license+= 'SOFTWARE.```'
 
 help = '하우젠봇 v' + bot_ver + '\n초대하기 : ' + bot_invite_url + '\n문의는 libertin#2340에 갠챗으로 주시기 바랍니다.\n\n이름의 어원은 ' + hauzen_yt + '에서 착안했습니다.\n\n'
 help+= '하우젠봇 명령어 목록\n'
-help+= '하우젠 다쓸어버려 : 채널에 있는 메시지를 전부 삭제(세탁)합니다.\n'
+help+= '하우젠 청소해 : 채널에 있는 메시지를 전부 삭제(세탁)합니다. 채널 관리자만 가능한 기능입니다.\n'
 help+= '하우젠 도와줘 : 이 도움말을 표시합니다.\n'
 help+= '하우젠 라이센스 : 하우젠봇의 라이센스를 표시합니다.\n'
 help+= '하우젠 소스코드 : 하우젠봇의 소스코드 주소를 표시합니다.'
@@ -44,11 +44,12 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if message.content.startswith('하우젠 다쓸어버려'):
-        tmp = await client.send_message(message.channel, '은나노스팀으로 살균세탁중 >_<')
-        async for msg in client.logs_from(message.channel):
-            await client.delete_message(msg)
-        await client.send_message(message.channel, '살균세탁 하셨나요 하우젠~♬')
+    if message.content.startswith('하우젠 청소해'):
+        if message.author.server_permissions.administrator:
+            tmp = await client.send_message(message.channel, '은나노스팀으로 살균세탁중 >_<')
+            async for msg in client.logs_from(message.channel):
+                await client.delete_message(msg)
+            await client.send_message(message.channel, '살균세탁 하셨나요 하우젠~♬')
     elif message.content.startswith('하우젠 도와줘'):
         await client.send_message(message.channel, help)
     elif message.content.startswith('하우젠 라이센스'):
@@ -57,4 +58,4 @@ async def on_message(message):
         await client.send_message(message.channel, source_repo)
 
 # 토큰은 여기다 싸질러주세요
-client.run('?_?')
+client.run('')
