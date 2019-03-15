@@ -5,9 +5,9 @@ import asyncio
 client = discord.Client()
 
 #Strings
-bot_ver = '1.0.0'
+bot_ver = '1.0.1'
 
-source_repo = 'https://github.com/lunanyan/discord_chatwasher'
+source_repo = '버그 또는 요청할 사항은 libertin#2340 또는 이슈로 남겨주세요. PR도 언제든지 환영합니다.\nhttps://github.com/lunanyan/discord_chatwasher'
 bot_invite_url = 'https://discordapp.com/oauth2/authorize?client_id=505037489573068800&scope=bot'
 hauzen_yt = 'https://www.youtube.com/watch?v=ohU40KhdPtE'
 
