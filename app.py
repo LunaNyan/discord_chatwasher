@@ -5,9 +5,9 @@ import asyncio
 client = discord.Client()
 
 #Strings
-bot_ver = '1.0.1'
+bot_ver = '1.0.2'
 
-source_repo = '버그 또는 요청할 사항은 libertin#2340 또는 이슈로 남겨주세요. PR도 언제든지 환영합니다.\nhttps://github.com/lunanyan/discord_chatwasher'
+source_repo = '버그 또는 요청할 사항은 https://twitter.com/discord_hauzen 또는 이슈로 남겨주세요. PR도 언제든지 환영합니다.\nhttps://github.com/lunanyan/discord_chatwasher'
 bot_invite_url = 'https://discordapp.com/oauth2/authorize?client_id=505037489573068800&scope=bot'
 hauzen_yt = 'https://www.youtube.com/watch?v=ohU40KhdPtE'
 
@@ -36,6 +36,12 @@ help+= '하우젠 청소해 : 채널에 있는 메시지를 전부 삭제(세탁
 help+= '하우젠 도와줘 : 이 도움말을 표시합니다.\n'
 help+= '하우젠 라이센스 : 하우젠봇의 라이센스를 표시합니다.\n'
 help+= '하우젠 소스코드 : 하우젠봇의 소스코드 주소를 표시합니다.'
+help+= '하우젠 변경사항 : 하우젠봇의 체인지로그를 표시힙니다.'
+
+changelog = '```하우젠봇 v' + bot_ver + '\n'
+changelog+= '- 트위터 링크 추가\n'
+changelog+= '- 체인지로그 보기 기능 추가'
+changelog+= '```'
 
 @client.event
 async def on_ready():
@@ -56,6 +62,8 @@ async def on_message(message):
         await client.send_message(message.channel, license)
     elif message.content.startswith('하우젠 소스코드'):
         await client.send_message(message.channel, source_repo)
+    elif message.content.startswith('하우젠 변경사항'):
+        await client.send_messgae(message.channel, changelog)
 
 # 토큰은 여기다 싸질러주세요
 client.run('')
