@@ -5,7 +5,7 @@ import asyncio
 client = discord.Client()
 
 #Strings
-bot_ver = '1.0.2'
+bot_ver = '1.0.2a'
 
 source_repo = '버그 또는 요청할 사항은 https://twitter.com/discord_hauzen 또는 이슈로 남겨주세요. PR도 언제든지 환영합니다.\nhttps://github.com/lunanyan/discord_chatwasher'
 bot_invite_url = 'https://discordapp.com/oauth2/authorize?client_id=505037489573068800&scope=bot'
@@ -13,7 +13,7 @@ hauzen_yt = 'https://www.youtube.com/watch?v=ohU40KhdPtE'
 
 #일체형으로 작성해야 하기에 라이센스 전문을 하드코딩합니다
 license = '```MIT License\n\n'
-license+= 'Copyright (c) 2018 ItsLunaNyan\n\n'
+license+= 'Copyright (c) 2019 ItsLunaNyan\n\n'
 license+= 'Permission is hereby granted, free of charge, to any person obtaining a copy\n'
 license+= 'of this software and associated documentation files (the "Software"), to deal\n'
 license+= 'in the Software without restriction, including without limitation the rights\n'
@@ -30,18 +30,21 @@ license+= 'LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISI
 license+= 'OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\n'
 license+= 'SOFTWARE.```'
 
-help = '하우젠봇 v' + bot_ver + '\n초대하기 : ' + bot_invite_url + '\n문의는 libertin#2340에 갠챗으로 주시기 바랍니다.\n\n이름의 어원은 ' + hauzen_yt + '에서 착안했습니다.\n\n'
+help = '하우젠봇 v' + bot_ver + '\n초대하기 : ' + bot_invite_url + '\n문의는 https://twitter.com/discord_hauzen 에 멘션으로 주시기 바랍니다.\n\n이름의 어원은 ' + hauzen_yt + '에서 착안했습니다.\n\n'
 help+= '하우젠봇 명령어 목록\n'
 help+= '하우젠 청소해 : 채널에 있는 메시지를 전부 삭제(세탁)합니다. 채널 관리자만 가능한 기능입니다.\n'
 help+= '하우젠 도와줘 : 이 도움말을 표시합니다.\n'
 help+= '하우젠 라이센스 : 하우젠봇의 라이센스를 표시합니다.\n'
-help+= '하우젠 소스코드 : 하우젠봇의 소스코드 주소를 표시합니다.'
+help+= '하우젠 소스코드 : 하우젠봇의 소스코드 주소를 표시합니다.\n'
 help+= '하우젠 변경사항 : 하우젠봇의 체인지로그를 표시힙니다.'
 
-changelog = '```하우젠봇 v' + bot_ver + '\n'
-changelog+= '- 트위터 링크 추가\n'
-changelog+= '- 체인지로그 보기 기능 추가'
-changelog+= '```'
+bot_changelog = '```하우젠봇 v' + bot_ver + '\n'
+bot_changelog+= '- 관리자 권한 없을 시 안내 메시지 추가'
+bot_changelog+= '- 일부 구간의 문법 수정'
+bot_changelog+= '1.0.2 변경사항'
+bot_changelog+= '- 트위터 링크 추가\n'
+bot_changelog+= '- 체인지로그 보기 기능 추가'
+bot_changelog+= '```'
 
 @client.event
 async def on_ready():
@@ -56,6 +59,8 @@ async def on_message(message):
             async for msg in client.logs_from(message.channel):
                 await client.delete_message(msg)
             await client.send_message(message.channel, '살균세탁 하셨나요 하우젠~♬')
+        else:
+            await client.send_message(message.channel, '관리자 권한을 소유하고 있지 않습니다.')
     elif message.content.startswith('하우젠 도와줘'):
         await client.send_message(message.channel, help)
     elif message.content.startswith('하우젠 라이센스'):
@@ -63,7 +68,7 @@ async def on_message(message):
     elif message.content.startswith('하우젠 소스코드'):
         await client.send_message(message.channel, source_repo)
     elif message.content.startswith('하우젠 변경사항'):
-        await client.send_messgae(message.channel, changelog)
+        await client.send_message(message.channel, bot_changelog)
 
 # 토큰은 여기다 싸질러주세요
-client.run('')
+client.run('NTA1MDM3NDg5NTczMDY4ODAw.D2uVAQ.xRqqG4T1d-XNYL01IN6F79413ns')
