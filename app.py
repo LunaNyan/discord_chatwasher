@@ -39,11 +39,11 @@ help+= '하우젠 소스코드 : 하우젠봇의 소스코드 주소를 표시�
 help+= '하우젠 변경사항 : 하우젠봇의 체인지로그를 표시힙니다.'
 
 bot_changelog = '```하우젠봇 v' + bot_ver + '\n'
-bot_changelog+= '- 관리자 권한 없을 시 안내 메시지 추가'
-bot_changelog+= '- 일부 구간의 문법 수정'
-bot_changelog+= '1.0.2 변경사항'
+bot_changelog+= '- 관리자 권한 없을 시 안내 메시지 추가\n'
+bot_changelog+= '- 일부 구간의 문법 수정\n'
+bot_changelog+= '1.0.2 변경사항\n'
 bot_changelog+= '- 트위터 링크 추가\n'
-bot_changelog+= '- 체인지로그 보기 기능 추가'
+bot_changelog+= '- 체인지로그 보기 기능 추가\n'
 bot_changelog+= '```'
 
 @client.event
@@ -71,4 +71,4 @@ async def on_message(message):
         await client.send_message(message.channel, bot_changelog)
 
 # 토큰은 여기다 싸질러주세요
-client.run('NTA1MDM3NDg5NTczMDY4ODAw.D2uVAQ.xRqqG4T1d-XNYL01IN6F79413ns')
+client.run('')
