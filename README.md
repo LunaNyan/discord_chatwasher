@@ -1,4 +1,4 @@
-# [Invite](https://discordapp.com/oauth2/authorize?client_id=505037489573068800&scope=bot)
+# [Invite](https://discordapp.com/oauth2/authorize/?permissions=75776&scope=bot&client_id=505037489573068800)
 
 **살균세탁 하셨나요 하우젠~♬**
 
