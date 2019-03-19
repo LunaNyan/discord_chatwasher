@@ -5,10 +5,10 @@ import asyncio
 client = discord.Client()
 
 #Strings
-bot_ver = '1.0.3'
+bot_ver = '1.0.3a'
 
 source_repo = '버그 또는 요청할 사항은 https://twitter.com/discord_hauzen 또는 이슈로 남겨주세요. PR도 언제든지 환영합니다.\nhttps://github.com/lunanyan/discord_chatwasher'
-bot_invite_url = 'https://discordapp.com/oauth2/authorize?client_id=505037489573068800&scope=bot'
+bot_invite_url = 'https://discordapp.com/oauth2/authorize/?permissions=75776&scope=bot&client_id=505037489573068800'
 hauzen_yt = 'https://www.youtube.com/watch?v=ohU40KhdPtE'
 
 #일체형으로 작성해야 하기에 라이센스 전문을 하드코딩합니다
@@ -40,6 +40,8 @@ help+= '하우젠 변경사항 : 하우젠봇의 체인지로그를 표시힙니
 help+= '하우젠 서버개수 : 하우젠봇이 몇개의 서버에서 동작 중인지 알려줍니다.'
 
 bot_changelog = '```하우젠봇 v' + bot_ver + '\n'
+bot_changelog+= '- 봇 초대코드 수정\n'
+bot_changelog+= '1.0.3 (2019-03-19)\n'
 bot_changelog+= '- 서버 개수 카운터 추가\n'
 bot_changelog+= '1.0.2a (2019-03-18)\n'
 bot_changelog+= '- 관리자 권한 없을 시 안내 메시지 추가\n'
