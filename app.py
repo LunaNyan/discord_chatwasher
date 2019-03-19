@@ -5,7 +5,7 @@ import asyncio
 client = discord.Client()
 
 #Strings
-bot_ver = '1.0.2a'
+bot_ver = '1.0.3'
 
 source_repo = '버그 또는 요청할 사항은 https://twitter.com/discord_hauzen 또는 이슈로 남겨주세요. PR도 언제든지 환영합니다.\nhttps://github.com/lunanyan/discord_chatwasher'
 bot_invite_url = 'https://discordapp.com/oauth2/authorize?client_id=505037489573068800&scope=bot'
@@ -36,12 +36,15 @@ help+= '하우젠 청소해 : 채널에 있는 메시지를 전부 삭제(세탁
 help+= '하우젠 도와줘 : 이 도움말을 표시합니다.\n'
 help+= '하우젠 라이센스 : 하우젠봇의 라이센스를 표시합니다.\n'
 help+= '하우젠 소스코드 : 하우젠봇의 소스코드 주소를 표시합니다.\n'
-help+= '하우젠 변경사항 : 하우젠봇의 체인지로그를 표시힙니다.'
+help+= '하우젠 변경사항 : 하우젠봇의 체인지로그를 표시힙니다.\n'
+help+= '하우젠 서버개수 : 하우젠봇이 몇개의 서버에서 동작 중인지 알려줍니다.'
 
 bot_changelog = '```하우젠봇 v' + bot_ver + '\n'
+bot_changelog+= '- 서버 개수 카운터 추가\n'
+bot_changelog+= '1.0.2a (2019-03-18)\n'
 bot_changelog+= '- 관리자 권한 없을 시 안내 메시지 추가\n'
 bot_changelog+= '- 일부 구간의 문법 수정\n'
-bot_changelog+= '1.0.2 변경사항\n'
+bot_changelog+= '1.0.2 (2019-03-18)\n'
 bot_changelog+= '- 트위터 링크 추가\n'
 bot_changelog+= '- 체인지로그 보기 기능 추가\n'
 bot_changelog+= '```'
@@ -50,6 +53,7 @@ bot_changelog+= '```'
 async def on_ready():
     print('name : ' + client.user.name)
     print('id   : ' + client.user.id)
+    await client.change_presence(game=discord.Game(name='하우젠 도와줘 : 도움말 | ' + bot_ver))
 
 @client.event
 async def on_message(message):
@@ -69,6 +73,8 @@ async def on_message(message):
         await client.send_message(message.channel, source_repo)
     elif message.content.startswith('하우젠 변경사항'):
         await client.send_message(message.channel, bot_changelog)
+    elif message.content.startswith('하우젠 서버개수'):
+        await client.send_message(message.channel, str(len(client.servers)) + "개의 서버에서 동작 중입니다.")
 
 # 토큰은 여기다 싸질러주세요
 client.run('')
