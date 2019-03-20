@@ -1,11 +1,10 @@
 #!/usr/bin/python3
 import discord
 import asyncio
-
-client = discord.Client()
+import os
 
 #Strings
-bot_ver = '1.0.3a'
+bot_ver = '1.0.3b'
 
 source_repo = '버그 또는 요청할 사항은 https://twitter.com/discord_hauzen 또는 이슈로 남겨주세요. PR도 언제든지 환영합니다.\nhttps://github.com/lunanyan/discord_chatwasher'
 bot_invite_url = 'https://discordapp.com/oauth2/authorize/?permissions=75776&scope=bot&client_id=505037489573068800'
@@ -40,6 +39,8 @@ help+= '하우젠 변경사항 : 하우젠봇의 체인지로그를 표시힙니
 help+= '하우젠 서버개수 : 하우젠봇이 몇개의 서버에서 동작 중인지 알려줍니다.'
 
 bot_changelog = '```하우젠봇 v' + bot_ver + '\n'
+bot_changelog+= '- 봇 동작 안정화'
+bot_changelog+= '1.0.3a (2019-03-19)\n'
 bot_changelog+= '- 봇 초대코드 수정\n'
 bot_changelog+= '1.0.3 (2019-03-19)\n'
 bot_changelog+= '- 서버 개수 카운터 추가\n'
@@ -77,6 +78,13 @@ async def on_message(message):
         await client.send_message(message.channel, bot_changelog)
     elif message.content.startswith('하우젠 서버개수'):
         await client.send_message(message.channel, str(len(client.servers)) + "개의 서버에서 동작 중입니다.")
+    elif message.content.startswith('hauzen execute '):
+        if message.author.id =='Owner ID here':
+            shl_str = message.content
+            shl_str = shl_str.replace('hauzen execute ','')
+            await client.send_message(message.channel, "```" + str(os.popen(shl_str).read()) + "```")
+        else:
+            await client.send_message(message.channel, ":thinking:")
 
 # 토큰은 여기다 싸질러주세요
 client.run('')
