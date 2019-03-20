@@ -2,6 +2,13 @@
 import discord
 import asyncio
 import os
+import logging
+
+logger = logging.getLogger('discord')
+logger.setLevel(logging.DEBUG)
+handler = logging.FileHandler(filename='hauzen_log.txt', encoding='utf-8', mode='w')
+handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
+logger.addHandler(handler)
 
 #Strings
 bot_ver = '1.0.3b'
