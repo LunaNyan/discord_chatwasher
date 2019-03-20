@@ -10,6 +10,8 @@ handler = logging.FileHandler(filename='hauzen_log.txt', encoding='utf-8', mode=
 handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
 logger.addHandler(handler)
 
+client = discord.Client()
+
 #Strings
 bot_ver = '1.0.3b'
 
