@@ -67,4 +67,4 @@ async def on_message(message):
         await message.channel.send(bot_changelog)
 
 # 토큰은 여기다 싸질러주세요
-client.run('NTA1MDM3NDg5NTczMDY4ODAw.D3P6Nw.D0vkooa93kRngryQEHGKPnkp5p4')
+client.run('')
