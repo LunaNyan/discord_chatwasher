@@ -1,11 +1,16 @@
-# [Invite](https://discordapp.com/oauth2/authorize/?permissions=75776&scope=bot&client_id=505037489573068800)
-
 **살균세탁 하셨나요 하우젠~♬**
 
-## TODO
-- [x] 어드민만 가능하도록 권한 설정
-- [ ] 재확인 과정 추가 
-- [x] 새 서버 장만하기
+async 버전 discord.py(<1.0.0)을 요구하는 버전입니다.
+
+## 요구 사항
+- Python 3.4.2 이상이 동작할 수 있는 Windows, Linux 환경
+- Python 3.4.2 ~ 3.6
+- discord.py async (~0.16.12)
+
+## 설치 방법
+1. `pip3 install discord==0.16.12 asyncio`를 실행합니다. 이 작업은 하우젠봇이 동작할 수 있도록 요구 모듈을 설치합니다.
+2. `app.py`를 텍스트 에디터로 열어 맨 마지막 줄에 봇 토큰을 추가합니다.
+3. `app.py`를 실행합니다.
 
 ## 사용 방법
 - 하우젠 청소해 : 채널에 있는 메시지를 전부 삭제(세탁)합니다.
