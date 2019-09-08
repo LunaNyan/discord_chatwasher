@@ -1,11 +1,14 @@
-# [Invite](https://discordapp.com/oauth2/authorize/?permissions=75776&scope=bot&client_id=505037489573068800)
-
 **살균세탁 하셨나요 하우젠~♬**
 
-## TODO
-- [x] 어드민만 가능하도록 권한 설정
-- [ ] 재확인 과정 추가 
-- [x] 새 서버 장만하기
+## 요구 사항
+- Python 3.5 또는 그 이상이 동작할 수 있는 Windows, Linux 환경
+- Python 3.5+
+- discord.py 1.0.1+
+
+## 설치 방법
+1. `pip3 install discord asyncio`를 입력합니다. 이 작업은 세탁기봇이 동작하는데 필요한 모듈을 설치합니다.
+2. 1번 과정이 완료되었다면 `app.py`를 텍스트 에디터로 열어 마지막 줄에 있는 token 부분에 봇 토큰을 입력합니다.
+3. `app.py`를 실행합니다.
 
 ## 사용 방법
 - 하우젠 청소해 : 채널에 있는 메시지를 전부 삭제(세탁)합니다.
